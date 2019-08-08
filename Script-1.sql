@@ -81,4 +81,10 @@ alter table mezclaAgroquimico add foreign key (idAgroquimico) references agroqui
 alter table usuarioRoles add foreign key (idUsuario) references usuario(idUsuario)
 alter table usuarioRoles add foreign key (idRol) references rol(idRol)
 
-
+create table medidas (--tabla provisoria para pruebas mientras no este cassandra productivo
+	idMedida SERIAL primary key,
+	idEnsayo int,
+	idPrueba int,
+	fecha timestamp,
+	medidas text
+)
