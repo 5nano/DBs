@@ -73,8 +73,12 @@ create table compania (
 	descripcion text
 )
 
-
-
-
+alter table prueba add foreign key (idEnsayo) references ensayo(idEnsayo)
+alter table prueba add foreign key (idCultivo) references cultivo(idCultivo)
+alter table ensayo add foreign key (idUserCreador) references usuario(idUsuario)
+alter table mezclaAgroquimico add foreign key (idMezcla) references mezcla(idMezcla)
+alter table mezclaAgroquimico add foreign key (idAgroquimico) references agroquimico(idAgroquimico)
+alter table usuarioRoles add foreign key (idUsuario) references usuario(idUsuario)
+alter table usuarioRoles add foreign key (idRol) references rol(idRol)
 
 
