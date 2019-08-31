@@ -3,3 +3,6 @@ CREATE KEYSPACE nano WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replicati
 use nano;
 
 CREATE TABLE nano.measures (id_assay int, id_experiment int, time timestamp, measures text, PRIMARY KEY((id_test,id_plant), time));
+
+create table nano.images(id_assay int, id_experiment int ,time timestamp, image text, PRIMARY KEY((id_assay,id_experiment,time)));
+
