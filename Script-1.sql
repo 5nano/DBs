@@ -58,6 +58,7 @@ CREATE TABLE usuario (
     apellido VARCHAR(255) NOT NULL,
     usuario VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
     creado timestamp,
     actualizado timestamp,
     enabled bool
