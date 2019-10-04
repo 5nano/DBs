@@ -33,7 +33,7 @@ CREATE TABLE ensayo (
     idEnsayo SERIAL primary key,
     idUserCreador int,
     idCultivo int,
-    nombre VARCHAR(255) NOT NULL,
+    nombre VARCHAR(255) UNIQUE NOT NULL,
     descripcion TEXT
 ) 
 
