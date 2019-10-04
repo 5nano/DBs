@@ -85,14 +85,6 @@ alter table usuarioRoles add foreign key (idUsuario) references usuario(idUsuari
 alter table usuarioRoles add foreign key (idRol) references rol(idRol)
 
 
-create table medidas (--tabla provisoria para pruebas mientras no este cassandra productivo
-	idMedida SERIAL primary key,
-	idEnsayo int,
-	idPrueba int,
-	fecha timestamp,
-	medidas text
-)
-
 
 
 insert into cultivo (idCultivo, nombre, descripcion) values (default,'prueba','prueba');
