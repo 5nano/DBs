@@ -13,6 +13,16 @@ CREATE TABLE cultivo (
 CREATE TABLE experimento (
     idExperimento SERIAL primary key,
     idEnsayo int,
+    idTratamiento int,
+    nombre VARCHAR(255) NOT NULL,
+    descripcion TEXT
+) 
+
+
+CREATE TABLE tratamiento (
+    idTratamiento SERIAL primary key,
+    idEnsayo int,
+    idAgroquimico int,
     idMezcla int,
     nombre VARCHAR(255) NOT NULL,
     descripcion TEXT
@@ -32,7 +42,7 @@ CREATE TABLE mezclaAgroquimico (
     idMezclaAgroquimico SERIAL primary key,
     idMezcla int,
     idAgroquimico int,
-    porcentaje float
+    precion float
 ) 
 
 CREATE TABLE agroquimico (
@@ -75,7 +85,7 @@ create table compania (
 )
 
 alter table experimento add foreign key (idEnsayo) references ensayo(idEnsayo)
-alter table experimento add foreign key (idMezcla) references mezcla(idMezcla)
+alter table experimento add foreign key (idTratamiento) references tratamiento(idTratamiento)
 alter table prueba add foreign key (idCultivo) references cultivo(idCultivo)
 alter table ensayo add foreign key (idUserCreador) references usuario(idUsuario)
 alter table ensayo add foreign key (idCultivo) references cultivo(idCultivo)
@@ -83,7 +93,9 @@ alter table mezclaAgroquimico add foreign key (idMezcla) references mezcla(idMez
 alter table mezclaAgroquimico add foreign key (idAgroquimico) references agroquimico(idAgroquimico)
 alter table usuarioRoles add foreign key (idUsuario) references usuario(idUsuario)
 alter table usuarioRoles add foreign key (idRol) references rol(idRol)
-
+alter table tratamiento add foreign key (idEnsayo) references ensayo(idEnsayo)
+alter table tratamiento add foreign key (idMezcla) references mezcla(idMezcla)
+alter table tratamiento add foreign key (idAgroquimico) references agroquimico(idAgroquimico)
 
 
 
