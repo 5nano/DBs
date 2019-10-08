@@ -85,6 +85,20 @@ create table compania (
 	descripcion text
 )
 
+CREATE TABLE tagEnsayo (
+    idTagEnsayo SERIAL primary key,
+    idTag int,
+    idEnsayo int
+) 
+
+
+CREATE TABLE tag (
+    idTag SERIAL primary key,
+    nombre int,
+    descripcion int
+) 
+
+
 alter table experimento add foreign key (idEnsayo) references ensayo(idEnsayo)
 alter table experimento add foreign key (idTratamiento) references tratamiento(idTratamiento)
 alter table prueba add foreign key (idCultivo) references cultivo(idCultivo)
@@ -97,6 +111,8 @@ alter table usuarioRoles add foreign key (idRol) references rol(idRol)
 alter table tratamiento add foreign key (idEnsayo) references ensayo(idEnsayo)
 alter table tratamiento add foreign key (idMezcla) references mezcla(idMezcla)
 alter table tratamiento add foreign key (idAgroquimico) references agroquimico(idAgroquimico)
+alter table tagEnsayo add foreign key (idTag) references tag(idTag)
+alter table tagEnsayo add foreign key (idEnsayo) references ensayo(idEnsayo)
 
 
 
@@ -105,4 +121,6 @@ insert into mezcla (idMezcla, nombre, descripcion) values (default,'prueba','pru
 insert into experimento values (default,1,'prueba','prueba');
 insert into usuario values(default,1,'prueba','prueba','prueba','prueba',current_timestamp,current_timestamp,true)
 insert into prueba values (default,1,1,'prueba','prueba');
+insert into tratamiento (idTratamiento, idEnsayo, idagroquimico, idmezcla,nombre,descripcion) values (default, 1, null, null, 'test', 'test')
+
 
