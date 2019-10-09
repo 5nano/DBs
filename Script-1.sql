@@ -94,9 +94,10 @@ CREATE TABLE tagEnsayo (
 
 CREATE TABLE tag (
     idTag SERIAL primary key,
-    nombre int,
-    descripcion int
+    nombre varchar(255) unique not null,
+    descripcion text
 ) 
+
 
 
 alter table experimento add foreign key (idEnsayo) references ensayo(idEnsayo)
