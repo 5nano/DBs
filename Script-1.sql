@@ -24,7 +24,7 @@ CREATE TABLE tratamiento (
     idEnsayo int,
     idAgroquimico int,
     idMezcla int,
-    nombre VARCHAR(255) NOT NULL,
+    nombre VARCHAR(255) UNIQUE NOT NULL,
     descripcion TEXT
 ) 
 
@@ -114,7 +114,6 @@ alter table tratamiento add foreign key (idMezcla) references mezcla(idMezcla)
 alter table tratamiento add foreign key (idAgroquimico) references agroquimico(idAgroquimico)
 alter table tagEnsayo add foreign key (idTag) references tag(idTag)
 alter table tagEnsayo add foreign key (idEnsayo) references ensayo(idEnsayo)
-
 
 
 insert into cultivo (idCultivo, nombre, descripcion) values (default,'prueba','prueba');
