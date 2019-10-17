@@ -124,4 +124,17 @@ insert into usuario values(default,1,'prueba','prueba','prueba','prueba',current
 insert into prueba values (default,1,1,'prueba','prueba');
 insert into tratamiento (idTratamiento, idEnsayo, idagroquimico, idmezcla,nombre,descripcion) values (default, 1, null, null, 'test', 'test')
 
+/*PAra eliminar un ensayo, que no sea el 12*/
+delete FROM mezclaAgroquimico
 
+delete from mezcla where idMezcla not in (3)
+
+delete from agroquimico where nombre not in ('Galant')
+
+delete from tagEnsayo where idEnsayo not in (12)
+
+delete from experimento where idExperimento not in (78,79,77,80)
+
+delete from tratamiento where idTratamiento not in (78)
+
+delete from ensayo where idEnsayo not in (12)
