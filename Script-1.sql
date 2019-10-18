@@ -26,6 +26,7 @@ CREATE TABLE tratamiento (
     idMezcla int,
     nombre VARCHAR(255) UNIQUE NOT NULL,
     descripcion TEXT
+    presion float
 ) 
 
 
@@ -34,7 +35,9 @@ CREATE TABLE ensayo (
     idUserCreador int,
     idCultivo int,
     nombre VARCHAR(255) UNIQUE NOT NULL,
-    descripcion TEXT
+    descripcion TEXT,
+    estado varchar(255),
+    creado timestamp
 ) 
 
 
@@ -42,7 +45,6 @@ CREATE TABLE mezclaAgroquimico (
     idMezclaAgroquimico SERIAL primary key,
     idMezcla int,
     idAgroquimico int,
-    precion float
 ) 
 
 CREATE TABLE agroquimico (
@@ -137,3 +139,4 @@ delete from experimento where idExperimento not in (78,79,77,80)
 delete from tratamiento where idTratamiento not in (78)
 
 delete from ensayo where idEnsayo not in (12)
+
