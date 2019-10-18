@@ -110,20 +110,35 @@ CREATE TABLE tag (
 
 alter table experimento add foreign key (idEnsayo) references ensayo(idEnsayo)
 alter table experimento add foreign key (idTratamiento) references tratamiento(idTratamiento)
-alter table prueba add foreign key (idCultivo) references cultivo(idCultivo)
 alter table ensayo add foreign key (idUserCreador) references usuario(idUsuario)
 alter table ensayo add foreign key (idCultivo) references cultivo(idCultivo)
 alter table mezclaAgroquimico add foreign key (idMezcla) references mezcla(idMezcla)
 alter table mezclaAgroquimico add foreign key (idAgroquimico) references agroquimico(idAgroquimico)
 alter table usuarioRoles add foreign key (idUsuario) references usuario(idUsuario)
 alter table usuarioRoles add foreign key (idRol) references rol(idRol)
-alter table tratamiento add foreign key (idEnsayo) references ensayo(idEnsayo)
 alter table tratamiento add foreign key (idMezcla) references mezcla(idMezcla)
 alter table tratamiento add foreign key (idAgroquimico) references agroquimico(idAgroquimico)
 alter table tagEnsayo add foreign key (idTag) references tag(idTag)
 alter table tagEnsayo add foreign key (idEnsayo) references ensayo(idEnsayo)
 alter table ensayoTerminado add foreign key (idEnsayo) references ensayo(idEnsayo)
 
+ALTER TABLE tratamiento   
+DROP CONSTRAINT tratamiento_delete_fk,
+ADD CONSTRAINT tratamiento_delete_fk FOREIGN KEY (idEnsayo)
+REFERENCES ensayo (idEnsayo) ON DELETE CASCADE;
+          
+ALTER TABLE experimento   
+ADD CONSTRAINT experimento_tratamiento_delete_fk FOREIGN KEY (idTratamiento)
+REFERENCES tratamiento (idTratamiento) ON DELETE CASCADE;
+
+ALTER TABLE experimento   
+ADD CONSTRAINT experimento_ensayo_delete_fk FOREIGN KEY (idEnsayo)
+REFERENCES ensayo (idEnsayo) ON DELETE CASCADE;
+
+
+ALTER TABLE TagEnsayo   
+ADD CONSTRAINT tagEnsayo_delete_fk FOREIGN KEY (idEnsayo)
+REFERENCES ensayo (idEnsayo) ON DELETE CASCADE;
 
 insert into cultivo (idCultivo, nombre, descripcion) values (default,'prueba','prueba');
 insert into mezcla (idMezcla, nombre, descripcion) values (default,'prueba','prueba');
