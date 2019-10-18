@@ -40,6 +40,12 @@ CREATE TABLE ensayo (
     creado timestamp
 ) 
 
+CREATE TABLE ensayoTerminado (
+    idEnsayoTerminado SERIAL primary key,
+    idEnsayo int,
+    conclusiones TEXT,
+    estrellas int
+) 
 
 CREATE TABLE mezclaAgroquimico (
     idMezclaAgroquimico SERIAL primary key,
@@ -116,6 +122,7 @@ alter table tratamiento add foreign key (idMezcla) references mezcla(idMezcla)
 alter table tratamiento add foreign key (idAgroquimico) references agroquimico(idAgroquimico)
 alter table tagEnsayo add foreign key (idTag) references tag(idTag)
 alter table tagEnsayo add foreign key (idEnsayo) references ensayo(idEnsayo)
+alter table ensayoTerminado add foreign key (idEnsayo) references ensayo(idEnsayo)
 
 
 insert into cultivo (idCultivo, nombre, descripcion) values (default,'prueba','prueba');
@@ -139,4 +146,8 @@ delete from experimento where idExperimento not in (78,79,77,80)
 delete from tratamiento where idTratamiento not in (78)
 
 delete from ensayo where idEnsayo not in (12)
+
+update ensayo set estado = 'ACTIVE'
+
+select * from ensayo
 
