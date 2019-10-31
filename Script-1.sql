@@ -150,5 +150,5 @@ delete from ensayo where idEnsayo not in (12)
 
 update ensayo set estado = 'ACTIVE'
 
-CREATE INDEX tratamiento_idensayo_idx ON public.tratamiento (idensayo,nombre);
+CREATE UNIQUE INDEX tratamiento_idensayo_idx ON public.tratamiento (idensayo,nombre);
 DROP INDEX public.nombre;
