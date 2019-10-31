@@ -151,4 +151,5 @@ delete from ensayo where idEnsayo not in (12)
 update ensayo set estado = 'ACTIVE'
 
 CREATE UNIQUE INDEX tratamiento_idensayo_idx ON public.tratamiento (idensayo,nombre);
+ALTER TABLE public.tratamiento DROP CONSTRAINT nombre;
 DROP INDEX public.nombre;
