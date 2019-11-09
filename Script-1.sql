@@ -104,7 +104,8 @@ CREATE TABLE tagEnsayo (
 CREATE TABLE tag (
     idTag SERIAL primary key,
     nombre varchar(255) unique not null,
-    descripcion text
+    descripcion text,
+    color varchar(255) default '#00FF00'
 ) 
 
 
@@ -157,4 +158,3 @@ ALTER TABLE public.ensayoterminado ADD fechaterminado timestamp;
 
 CREATE UNIQUE INDEX ensayo_nombre_idx ON public.ensayo (nombre,idcompania);
 ALTER TABLE public.ensayo DROP CONSTRAINT nombreunique;
-
