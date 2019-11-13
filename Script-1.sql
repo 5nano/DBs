@@ -38,7 +38,8 @@ CREATE TABLE ensayo (
     descripcion TEXT,
     estado varchar(255),
     creado timestamp,
-    idCompania int not null default 4
+    idCompania int not null default 4,
+    fechaEstimadaFinalizacion timestamp DEFAULT now()
 ) 
 
 CREATE TABLE ensayoTerminado (
@@ -133,6 +134,7 @@ insert into experimento values (default,1,'prueba','prueba');
 insert into usuario values(default,1,'prueba','prueba','prueba','prueba',current_timestamp,current_timestamp,true)
 insert into prueba values (default,1,1,'prueba','prueba');
 insert into tratamiento (idTratamiento, idEnsayo, idagroquimico, idmezcla,nombre,descripcion) values (default, 1, null, null, 'test', 'test')
+
 
 /*PAra eliminar un ensayo, que no sea el 12*/
 delete FROM mezclaAgroquimico
