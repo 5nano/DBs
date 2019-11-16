@@ -49,7 +49,8 @@ CREATE TABLE ensayoTerminado (
     idEnsayoTerminado SERIAL primary key,
     idEnsayo int,
     conclusiones TEXT,
-    estrellas int
+    estrellas int,
+    fechaterminado timestamp
 ) 
 
 CREATE TABLE mezclaAgroquimico (
