@@ -1,14 +1,17 @@
 CREATE TABLE mezcla (
     idMezcla SERIAL primary key,
-    nombre VARCHAR(255) NOT NULL,
+    nombre VARCHAR(255) unique NOT NULL,
     descripcion TEXT
 ) 
 
+
+
 CREATE TABLE cultivo (
     idCultivo SERIAL primary key,
-    nombre VARCHAR(255) NOT NULL,
+    nombre VARCHAR(255) unique NOT NULL,
     descripcion TEXT
 ) 
+
 
 CREATE TABLE experimento (
     idExperimento SERIAL primary key,
